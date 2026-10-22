@@ -1,5 +1,5 @@
-import Item from "./Item.vue";
+import Post from "./Post.vue";
 
 export {
-  Item,
+  Post,
 }

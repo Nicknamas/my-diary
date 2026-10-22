@@ -1,0 +1,163 @@
+:root {
+  color-scheme: light;
+
+  /* Accent */
+  --color-accent-default: #ed9b40;
+  --color-accent-hover: #e38b2c;
+  --color-accent-soft: #fdf1e3;
+  --color-accent-ink: #a85a0c;
+  /* Text */
+  --color-text-primary: #14110f;
+  --color-text-secondary: #6b655f;
+  --color-text-inverse: #ffffff;
+  --color-text-on-accent: #14110f;
+  /* Background */
+  --color-bg-default: #ffffff;
+  --color-bg-subtle: #faf8f6;
+  --color-bg-elevated: #ffffff;
+  --color-bg-inverse: #14110f;
+  --color-bg-inverse-hover: #2e2925;
+  --color-bg-fade: #ffffff00;
+  /* Border */
+  --color-border-default: #efebe7;
+  /* Danger */
+  --color-danger-default: #c8372d;
+  --color-danger-soft: #fbe8e6;
+  /* Success */
+  --color-success-default: #2f8f5b;
+  --color-success-soft: #e5f3ea;
+  /* Avatar */
+  --color-avatar-lavender: #e9ddfb;
+  --color-avatar-mint: #d7eedf;
+  --color-avatar-sky: #dcebfa;
+  --color-avatar-peach: #fbe1da;
+  --color-avatar-butter: #fff1c9;
+
+  /* ── Отступы ──────────────────────────────────────── */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+
+  /* ── Радиусы ──────────────────────────────────────── */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* ── Типографика ──────────────────────────────────── */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Шорткаты для свойства font: font: var(--text-body-m); */
+  --text-heading-xl: 700 22px/28px var(--font-sans);
+  --text-heading-l: 700 20px/28px var(--font-sans);
+  --text-body-l: 400 20px/28px var(--font-sans);
+  --text-body-m: 400 15px/20px var(--font-sans);
+  --text-body-m-medium: 500 15px/20px var(--font-sans);
+  --text-body-m-strong: 600 15px/20px var(--font-sans);
+  --text-nav-default: 400 17px/24px var(--font-sans);
+  --text-nav-active: 600 17px/24px var(--font-sans);
+  --text-button-l: 700 17px/24px var(--font-sans);
+  --text-button-m: 700 15px/20px var(--font-sans);
+  --text-label-s: 600 14px/18px var(--font-sans);
+  --text-label-xs: 600 12px/16px var(--font-sans);
+  --text-caption: 400 13px/16px var(--font-sans);
+
+  /* ── Тени: только у плавающих элементов ────────────── */
+  --shadow-raised: 0 6px 16px rgb(20 17 15 / 0.18);
+  --shadow-floating: 0 8px 24px rgb(20 17 15 / 0.12);
+  /* raised — кнопка нового поста; floating — таббар, поповеры, меню */
+
+  /* ── Раскладка (из раздела Breakpoints, не из переменных) ── */
+  --layout-feed-width: 600px;
+  --layout-sidebar-width: 275px;
+  --layout-rail-width: 88px;
+  --layout-aside-width: 350px;
+  --layout-content-width: 1273px;
+  /* Брейкпоинты (в media нельзя использовать var()):
+     телефон < 720px · планшет 720–1279px · десктоп ≥ 1280px */
+}
+
+/* ── Тёмная тема: выбрана вручную ─────────────────────── */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  /* Accent */
+  --color-accent-default: #ed9b40;
+  --color-accent-hover: #f2a955;
+  --color-accent-soft: #2e2116;
+  --color-accent-ink: #f0a458;
+  /* Text */
+  --color-text-primary: #f4efea;
+  --color-text-secondary: #a39b93;
+  --color-text-inverse: #14110f;
+  --color-text-on-accent: #14110f;
+  /* Background */
+  --color-bg-default: #141110;
+  --color-bg-subtle: #1d1a17;
+  --color-bg-elevated: #221e1b;
+  --color-bg-inverse: #f4efea;
+  --color-bg-inverse-hover: #ddd6cf;
+  --color-bg-fade: #14111000;
+  /* Border */
+  --color-border-default: #2e2925;
+  /* Danger */
+  --color-danger-default: #f27360;
+  --color-danger-soft: #3b2220;
+  /* Success */
+  --color-success-default: #5cc98a;
+  --color-success-soft: #1d3527;
+  /* Avatar */
+  --color-avatar-lavender: #3b3152;
+  --color-avatar-mint: #23392d;
+  --color-avatar-sky: #213347;
+  --color-avatar-peach: #47302a;
+  --color-avatar-butter: #463d22;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    /* Accent */
+    --color-accent-default: #ed9b40;
+    --color-accent-hover: #f2a955;
+    --color-accent-soft: #2e2116;
+    --color-accent-ink: #f0a458;
+    /* Text */
+    --color-text-primary: #f4efea;
+    --color-text-secondary: #a39b93;
+    --color-text-inverse: #14110f;
+    --color-text-on-accent: #14110f;
+    /* Background */
+    --color-bg-default: #141110;
+    --color-bg-subtle: #1d1a17;
+    --color-bg-elevated: #221e1b;
+    --color-bg-inverse: #f4efea;
+    --color-bg-inverse-hover: #ddd6cf;
+    --color-bg-fade: #14111000;
+    /* Border */
+    --color-border-default: #2e2925;
+    /* Danger */
+    --color-danger-default: #f27360;
+    --color-danger-soft: #3b2220;
+    /* Success */
+    --color-success-default: #5cc98a;
+    --color-success-soft: #1d3527;
+    /* Avatar */
+    --color-avatar-lavender: #3b3152;
+    --color-avatar-mint: #23392d;
+    --color-avatar-sky: #213347;
+    --color-avatar-peach: #47302a;
+    --color-avatar-butter: #463d22;
+  }
+}

@@ -5,13 +5,16 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '',
-      redirect: { name: 'FeedView' },
-      name: 'Root',
-      component: () => import('@core/root'),
+      path: '/',
+      component: () => import('@core/layouts/main-layout'),
       children: [
         ...feedRoutes,
       ]
+    },
+    {
+      path: '/',
+      component: () => import('@core/layouts/bare-layout'),
+      children: []
     }
   ],
 })

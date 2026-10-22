@@ -1,2 +1,5 @@
-import FeedView from "./FeedView.vue";
-export default FeedView
+import FeedBlock from "./block";
+
+export {
+  FeedBlock,
+}

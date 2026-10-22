@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { Item } from './ui';
-
+import { Post } from '@feed/ui'
 </script>
 
 <template>
@@ -10,7 +9,7 @@ import { Item } from './ui';
     <ul
       :class="$style.list"
     >
-      <Item />
+      <Post />
     </ul>
   </div>
 </template>

@@ -5,6 +5,7 @@
 </template>
 
 <style>
+@import url('./styles/variables.css');
 * {
   margin: 0;
   padding: 0;
