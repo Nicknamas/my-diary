@@ -32,9 +32,10 @@ const username = ref('@lenak')
       Подписаться
     </Button>
     <IconButton
-      name="more"
+      icon="more"
+      label="Ещё"
       size="small"
-      style-button="ghost"
+      variant="ghost"
     />
   </div>
 </template>

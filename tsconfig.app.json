@@ -16,11 +16,11 @@
       "@/*": [
         "./src/*"
       ],
-      "@users": [
-        "./src/domains/users/"
+      "@profile": [
+        "./src/domains/profile/"
       ],
-      "@users/*": [
-        "./src/domains/users/*"
+      "@profile/*": [
+        "./src/domains/profile/*"
       ],
       "@feed": [
         "./src/domains/feed"

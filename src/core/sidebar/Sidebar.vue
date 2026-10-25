@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UserRow } from '@users/block'
+import { UserRow } from '@profile/block'
 import { NavItem, Logo, Button } from '@ui-kit'
 
 const NAVIGATION_ITEMS = [

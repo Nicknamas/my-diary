@@ -1,26 +1,29 @@
 const svgResources = new Map<string, string>()
 const imageResources = new Map<string, string>()
 
+function extractName(filePath: string) {
+  return filePath.substring(filePath.lastIndexOf('/') + 1, filePath.lastIndexOf('.'))
+}
+
 function loadIcons() {
-  let modules = import.meta.glob('@/assets/icons/**/*.svg', {
+  if (svgResources.size > 0) return
+
+  const svgModules = import.meta.glob('@/assets/icons/**/*.svg', {
     query: '?raw',
     import: 'default',
     eager: true,
   })
-
-  for (const fileName in modules) {
-    const name = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.length - 4)
-    svgResources.set(name, String(modules[fileName]))
+  for (const filePath in svgModules) {
+    svgResources.set(extractName(filePath), String(svgModules[filePath]))
   }
 
-  modules = import.meta.glob('@/assets/images/**/*.png', {
+  const imageModules = import.meta.glob('@/assets/images/**/*.png', {
     query: '?url',
     import: 'default',
     eager: true,
   })
-  for (const fileName in modules) {
-    const name = fileName.substring(fileName.lastIndexOf('/') + 1, fileName.length - 4)
-    imageResources.set(name, String(modules[fileName]))
+  for (const filePath in imageModules) {
+    imageResources.set(extractName(filePath), String(imageModules[filePath]))
   }
 }
 

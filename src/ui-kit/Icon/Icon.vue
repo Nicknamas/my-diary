@@ -2,62 +2,43 @@
 import { computed } from 'vue'
 import { getImageUrl, getSvgIcon, loadIcons } from './shared'
 
-const props = defineProps({
-  name: {
-    type: String,
-    default: '',
-  },
-  size: {
-    type: String,
-    default: '',
-  },
-  width: {
-    type: String,
-    default: '',
-  },
-  height: {
-    type: String,
-    default: 'auto',
-  },
-})
+interface Props {
+  name: string
+  size?: number | string
+}
 
-const width = computed(() => {
-  return props.size ? `${props.size}px` : `${props.width}px`
-})
-const height = computed(() => {
-  return props.size ? `${props.size}px` : `${props.height}px`
-})
+const { name, size = 24 } = defineProps<Props>()
 
 loadIcons()
+
+const dimension = computed(() => `${size}px`)
+const svgMarkup = computed(() => getSvgIcon(name))
 </script>
 
 <template>
   <span
-    v-if="getSvgIcon(props.name)"
+    v-if="svgMarkup"
     :class="$style.icon"
-    :style="{
-      width,
-      height,
-    }"
-    v-html="getSvgIcon(props.name)"
+    :style="{ width: dimension, height: dimension }"
+    aria-hidden="true"
+    v-html="svgMarkup"
   />
   <img
     v-else
-    :src="getImageUrl(props.name)"
-    :style="{
-      width,
-      height,
-    }"
+    :src="getImageUrl(name)"
+    :style="{ width: dimension, height: dimension }"
+    alt=""
   >
 </template>
 
 <style module>
 .icon {
-  display: flex;
-}
+  display: inline-flex;
+  flex-shrink: 0;
 
-.icon > * {
-  width: inherit;
-  height: inherit;
+  & > svg {
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>

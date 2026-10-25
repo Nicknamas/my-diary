@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { Icon } from '@ui-kit'
+import Icon from '../Icon'
 
 interface Props {
-  compact?: boolean
   icon: string
   label: string
   active?: boolean
+  compact?: boolean
 }
 
-defineProps<Props>()
+const { icon, label, active = false, compact = false } = defineProps<Props>()
 </script>
 
 <template>
@@ -16,41 +16,49 @@ defineProps<Props>()
     :class="[
       $style.navItem,
       active ? $style.active : undefined,
+      compact ? $style.compact : undefined,
     ]"
+    :title="compact ? label : undefined"
   >
-    <Icon
-      :name="icon"
-    />
-    <p
+    <Icon :name="icon" />
+    <span
       v-if="!compact"
-      :class="$style.text"
+      :class="$style.label"
     >
       {{ label }}
-    </p>
+    </span>
   </div>
 </template>
 
 <style module>
 .navItem {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 16px;
-
-  padding: 12px 24px 12px 14px;
-  border-radius: 999px;
-
+  gap: var(--space-16);
+  padding: var(--space-12) var(--space-24) var(--space-12) var(--space-14);
+  border-radius: var(--radius-full);
   color: var(--color-text-primary);
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background-color: var(--color-bg-subtle);
+  }
+
+  &.compact {
+    padding: var(--space-14);
+  }
 
   &.active {
     background-color: var(--color-accent-soft);
+    color: var(--color-accent-ink);
 
-    .text {
+    .label {
       font: var(--text-nav-active);
     }
   }
+}
 
-  .text {
-    font: var(--text-nav-default);
-  }
+.label {
+  font: var(--text-nav-default);
 }
 </style>
