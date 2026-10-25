@@ -14,8 +14,9 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
       '@feed': fileURLToPath(new URL('./src/domains/feed', import.meta.url)),
+      '@users': fileURLToPath(new URL('./src/domains/users', import.meta.url)),
       '@core': fileURLToPath(new URL('./src/core', import.meta.url)),
-      '@ui-kit': fileURLToPath(new URL('./src/ui-kit/', import.meta.url)),
+      '@ui-kit': fileURLToPath(new URL('./src/ui-kit', import.meta.url)),
     },
   },
 })

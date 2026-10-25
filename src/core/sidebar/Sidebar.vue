@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { UserRow } from '@users/block'
 import { NavItem, Logo, Button } from '@ui-kit'
 
 const NAVIGATION_ITEMS = [
@@ -43,6 +44,7 @@ const NAVIGATION_ITEMS = [
         label="Настройки"
         icon="settings"
       />
+      <UserRow />
     </div>
   </div>
 </template>
@@ -63,6 +65,12 @@ const NAVIGATION_ITEMS = [
       padding: 12px 0 12px 14px;
 
     }
+  }
+
+  .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 }
 

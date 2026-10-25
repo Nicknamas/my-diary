@@ -16,6 +16,12 @@
       "@/*": [
         "./src/*"
       ],
+      "@users": [
+        "./src/domains/users/"
+      ],
+      "@users/*": [
+        "./src/domains/users/*"
+      ],
       "@feed": [
         "./src/domains/feed"
       ],
