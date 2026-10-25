@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { NavItem, Logo } from '@ui-kit'
+import { NavItem, Logo, Button } from '@ui-kit'
 
 const NAVIGATION_ITEMS = [
   {
@@ -31,7 +31,18 @@ const NAVIGATION_ITEMS = [
           :icon="item.icon"
         />
       </ul>
-      <Button />
+      <Button
+        variant="primary"
+        size="large"
+      >
+        Создать
+      </Button>
+    </div>
+    <div :class="$style.bottom">
+      <NavItem
+        label="Настройки"
+        icon="settings"
+      />
     </div>
   </div>
 </template>
